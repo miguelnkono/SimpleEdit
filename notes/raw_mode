@@ -1,0 +1,5 @@
+By default a terminal program starts in canonical mode also known as cooked mode which refers to the fact
+that user inputs are only send to the program when the user presses on the enter keyboard key.
+
+But for application such as text editor we need to enter in raw mode which also us to receive user input as soon as they
+type a character so that we can respond to that.
