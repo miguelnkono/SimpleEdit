@@ -10,4 +10,11 @@
  */
 void editorProcessKeypress();
 
+/**
+ * This function will alter the coordinates of the cursor on the screen.
+ *
+ * @param key the character type to move the cursor.
+ */
+void editorMoveCursor(int key);
+
 #endif //KILO_INPUT_H

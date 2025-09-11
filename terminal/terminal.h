@@ -39,7 +39,7 @@ void disableRawMode();
  *
  * @return return the character read from the terminal.
  */
-char editorReadKey();
+int editorReadKey();
 
 /**
  * This function calculates the size of the terminal using the ioctl() function provide

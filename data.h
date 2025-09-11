@@ -16,7 +16,26 @@ typedef struct {
 
 	int screenrows;
 	int screencols;
+
+	// cursor position.
+	int cx, cy;
 }editorConfig;
 extern editorConfig E;
+
+// the directions keys.
+enum  editorKey {
+	ARROW_LEFT = 1000,
+	ARROW_RIGHT,
+	ARROW_UP,
+	ARROW_DOWN,
+
+	DEL_KEY,
+
+	HOME_KEY,
+	END_KEY,
+
+	PAGE_UP,
+	PAGE_DOWN,
+};
 
 #endif //KILO_DATA_H

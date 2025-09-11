@@ -5,6 +5,8 @@
 #ifndef KILO_DEFINES_H
 #define KILO_DEFINES_H
 
+#define EDITOR_VERSION "0.0.1"
+
 /**
  * It generates the control character corresponding to a given key character.
  * @param K the character in the alphabet table
@@ -14,7 +16,7 @@
 /**
  * Escape sequence.
  */
-#define ESCAPE_SEQUENCE "\x1b"
+#define ESCAPE_SEQUENCE '\x1b'
 #define ESCAPE_SEQUENCE_SIZE 1
 
 /**
@@ -32,6 +34,7 @@
 #define CURSOR_HIDE_SIZE 6
 #define CURSOR_SHOW "\x1b[?25h"
 #define CURSOR_SHOW_SIZE 6
+#define CURSOR_SET_POSITION "\x1b[%d;%dH"
 
 /**
  * Clear the screen.
