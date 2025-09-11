@@ -7,7 +7,16 @@
 
 #include <termios.h>
 
-// original terminal state.
-struct termios orig_termios;
+/**
+ * struct containing the editor configurations.
+ */
+typedef struct {
+	// original terminal state.
+	struct termios orig_termios;
+
+	int screenrows;
+	int screencols;
+}editorConfig;
+extern editorConfig E;
 
 #endif //KILO_DATA_H

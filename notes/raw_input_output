@@ -1,0 +1,6 @@
+The first 32(0x0f - 0x1f) characters of the ASCII table are controls character.
+pressing the ctrl-<character> will map the <character> to its control corresponding.
+
+We are writing an escape sequence to the terminal. Escape sequences always start with an escape character '\x1b' (27) followed
+by a [ character. Escape sequences instruct the terminal to do various text formatting tasks, such as coloring text,
+moving the cursor around, and clearing parts of the screen.
