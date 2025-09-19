@@ -12,6 +12,7 @@
 #include <sys/ioctl.h>
 
 #include "../defines.h"
+#include "../data.h"
 
 void enableRawMode() {
 	if (tcgetattr(STDIN_FILENO, &E.orig_termios) == -1) die("tcgetattr");

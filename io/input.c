@@ -9,6 +9,7 @@
 
 #include "../defines.h"
 #include "../terminal/terminal.h"
+#include "../data.h"
 
 void editorProcessKeypress() {
 	const int c = editorReadKey(); // we read the character from the terminal.

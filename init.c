@@ -5,6 +5,7 @@
 #include "init.h"
 
 #include "terminal/terminal.h"
+#include "data.h"
 
 void initEditor() {
 	E.cx = 0;
