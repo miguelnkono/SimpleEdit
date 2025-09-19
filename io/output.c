@@ -12,6 +12,8 @@
 #include "../types/string_buf.h"
 
 void editorRefreshScreen() {
+	editorScroll();
+
 	abuf ab = ABUF_INIT;
 
 	abAppend(&ab, CURSOR_HIDE, CURSOR_HIDE_SIZE);
@@ -22,7 +24,7 @@ void editorRefreshScreen() {
 
 	// allow the user to move the cursor.
 	char buf[32];
-	snprintf(buf, sizeof(buf), CURSOR_SET_POSITION, E.cy + 1, E.cx + 1);
+	snprintf(buf, sizeof(buf), CURSOR_SET_POSITION, (E.cy - E.rowoff) + 1, (E.cx - E.coloff) + 1);
 	abAppend(&ab, buf, (int)strlen(buf));
 
 	abAppend(&ab, CURSOR_SHOW, CURSOR_SHOW_SIZE);
@@ -38,7 +40,8 @@ void editorDrawRows(abuf *ab)
 
 	for (y = 0; y < E.screenrows; y++) 
 	{
-		if (y >= E.numrows)
+		int filerow = y + E.rowoff;
+		if (filerow >= E.numrows)
 		{
 			if (E.numrows == 0 && y == E.screenrows / 3) 
 			{
@@ -64,12 +67,13 @@ void editorDrawRows(abuf *ab)
 		}
 		else 
 		{
-			int len = E.row.size;
+			int len = E.row[filerow].rsize - E.coloff;
+			if (len < 0) len = 0;
 			if (len > E.screencols)
 			{
 				len = E.screencols;
 			}
-			abAppend(ab, E.row.chars, len);
+			abAppend(ab, &E.row[filerow].render[E.coloff], len);
 		}
 
 		abAppend(ab, SCREEN_CLEAR_LINE, SCREEN_CLEAR_LINE_SIZE);
@@ -79,3 +83,27 @@ void editorDrawRows(abuf *ab)
 		}
 	}
 }
+
+void editorScroll()
+{
+	// vertical scrolling.
+	if (E.cy < E.rowoff)
+	{
+		E.rowoff = E.cy;
+	}
+	if (E.cy >= E.rowoff + E.screenrows)
+	{
+		E.rowoff = E.cy - E.screenrows + 1;
+	}
+
+	// horizontal scrolling.
+	if (E.cx < E.coloff)
+	{
+		E.coloff = E.cx;
+	}
+	if (E.cx >= E.coloff + E.screencols)
+	{
+		E.coloff = E.cx - E.screencols + 1;
+	}
+}
+

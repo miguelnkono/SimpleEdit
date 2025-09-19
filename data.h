@@ -13,7 +13,9 @@
 typedef struct 
 {
 	int size;
+	int rsize;
 	char *chars;
+	char *render;
 } erow;
 
 /**
@@ -32,7 +34,10 @@ typedef struct
 
 	// the number of rows and the text on each row
 	int numrows;
-	erow row;
+	erow *row;
+	// the row offset
+	int rowoff;
+	int coloff;
 } editorConfig;
 extern editorConfig E;
 

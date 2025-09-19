@@ -6,6 +6,7 @@
 #define KILO_DEFINES_H
 
 #define EDITOR_VERSION "0.0.1"
+#define EDITOR_TAB_STOP 8
 
 /**
  * It generates the control character corresponding to a given key character.

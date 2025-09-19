@@ -17,6 +17,7 @@
 #include "../defines.h"
 #include "../terminal/terminal.h"
 #include "../data.h"
+#include "operations.h"
 
 void editorProcessKeypress() 
 {
@@ -55,16 +56,31 @@ void editorProcessKeypress()
 
 void editorMoveCursor(const int key) 
 {
+	erow *row = (E.cy >= E.numrows) ? NULL : &E.row[E.cy];
+
 	switch (key) {
 		case ARROW_LEFT:
 			if (E.cx != 0) {
 				E.cx--;
+			} 
+			else if (E.cy > 0)
+			{
+				E.cy--;
+				E.cx = E.row[E.cy].size;
 			}
+
 			break;
 		case ARROW_RIGHT:
-			if (E.cx != E.screencols - 1) {
+			if (row && E.cx < row->size)
+			{
 				E.cx++;
 			}
+			else if (row && E.cx == row->size)
+			{
+				E.cy++;
+				E.cx = 0;
+			}
+
 			break;
 		case ARROW_UP:
 			if (E.cy != 0) {
@@ -72,11 +88,19 @@ void editorMoveCursor(const int key)
 			}
 			break;
 		case ARROW_DOWN:
-			if (E.cy != E.screenrows - 1) {
+			if (E.cy < E.numrows) {
 				E.cy++;
 			}
 			break;
 	}
+
+	row = (E.cy >= E.numrows) ? NULL : &E.row[E.cy];
+	int rowlen = row ? row->size : 0;
+	if (E.cx > rowlen) 
+	{
+		E.cx = rowlen;
+	}
+	
 }
 
 void editorOpen(const char *filename)
@@ -90,19 +114,16 @@ void editorOpen(const char *filename)
 	char *line = NULL;
 	ssize_t linelen;
 	size_t linecap = 0;
-	linelen = getline(&line, &linecap, fp);
-	if (linelen != -1)
+	while ((linelen = getline(&line, &linecap, fp)) != -1)	// at and getline returns -1.
 	{
-		while (linelen > 0 && (line[linelen - 1] == '\n' || line[linelen - 1] == '\r'))
+		if (linelen != -1)
 		{
-			linelen--;
+			while (linelen > 0 && (line[linelen - 1] == '\n' || line[linelen - 1] == '\r'))
+			{
+				linelen--;
+			}
+			editorAppendRow(line, linelen);
 		}
-
-		E.row.size = linelen;
-		E.row.chars = malloc(linelen + 1);
-		memcpy(E.row.chars, line, linelen);
-		E.row.chars[linelen] = '\0';
-		E.numrows++;
 	}
 
 	free(line);

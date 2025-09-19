@@ -73,6 +73,12 @@ build CMakeFiles/kilo.dir/io/output.c.o: C_COMPILER__kilo_Debug /home/gost/CLion
   OBJECT_DIR = CMakeFiles/kilo.dir
   OBJECT_FILE_DIR = CMakeFiles/kilo.dir/io
 
+build CMakeFiles/kilo.dir/io/operations.c.o: C_COMPILER__kilo_Debug /home/gost/CLionProjects/kilo/io/operations.c || cmake_object_order_depends_target_kilo
+  DEP_FILE = CMakeFiles/kilo.dir/io/operations.c.o.d
+  FLAGS = -g -std=gnu11
+  OBJECT_DIR = CMakeFiles/kilo.dir
+  OBJECT_FILE_DIR = CMakeFiles/kilo.dir/io
+
 build CMakeFiles/kilo.dir/init.c.o: C_COMPILER__kilo_Debug /home/gost/CLionProjects/kilo/init.c || cmake_object_order_depends_target_kilo
   DEP_FILE = CMakeFiles/kilo.dir/init.c.o.d
   FLAGS = -g -std=gnu11
@@ -93,7 +99,7 @@ build CMakeFiles/kilo.dir/types/string_buf.c.o: C_COMPILER__kilo_Debug /home/gos
 #############################################
 # Link the executable kilo
 
-build kilo: C_EXECUTABLE_LINKER__kilo_Debug CMakeFiles/kilo.dir/kilo.c.o CMakeFiles/kilo.dir/terminal/terminal.c.o CMakeFiles/kilo.dir/io/input.c.o CMakeFiles/kilo.dir/io/output.c.o CMakeFiles/kilo.dir/init.c.o CMakeFiles/kilo.dir/types/string_buf.c.o
+build kilo: C_EXECUTABLE_LINKER__kilo_Debug CMakeFiles/kilo.dir/kilo.c.o CMakeFiles/kilo.dir/terminal/terminal.c.o CMakeFiles/kilo.dir/io/input.c.o CMakeFiles/kilo.dir/io/output.c.o CMakeFiles/kilo.dir/io/operations.c.o CMakeFiles/kilo.dir/init.c.o CMakeFiles/kilo.dir/types/string_buf.c.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/kilo.dir
   POST_BUILD = :

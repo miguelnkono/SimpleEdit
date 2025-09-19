@@ -18,4 +18,9 @@ void editorRefreshScreen();
  */
 void editorDrawRows(abuf *ab);
 
+/**
+ * Function to make the window scroll when the cursor goes beyond the visible window.
+ */
+void editorScroll();
+
 #endif //KILO_OUTPUT_H

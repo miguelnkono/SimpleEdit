@@ -5,6 +5,8 @@
 #ifndef KILO_INPUT_H
 #define KILO_INPUT_H
 
+#include "operations.h"
+
 /**
  * wait for a key press and then handle it to a corresponding functionality in the program.
  */
