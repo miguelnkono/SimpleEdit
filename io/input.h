@@ -17,4 +17,12 @@ void editorProcessKeypress();
  */
 void editorMoveCursor(int key);
 
+/**
+ * This function is load when the text editor start.
+ * This will load the file content in the editor.
+ * 
+ * @param filename which is the name of the file to read from.
+ */
+void editorOpen(const char *filename);
+
 #endif //KILO_INPUT_H

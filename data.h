@@ -8,9 +8,19 @@
 #include <termios.h>
 
 /**
+ * This struct contains the size of text in each of the lines in the editor and the text on each of those lines.
+ */
+typedef struct 
+{
+	int size;
+	char *chars;
+} erow;
+
+/**
  * struct containing the editor configurations.
  */
-typedef struct {
+typedef struct
+{
 	// original terminal state.
 	struct termios orig_termios;
 
@@ -19,7 +29,11 @@ typedef struct {
 
 	// cursor position.
 	int cx, cy;
-}editorConfig;
+
+	// the number of rows and the text on each row
+	int numrows;
+	erow row;
+} editorConfig;
 extern editorConfig E;
 
 // the directions keys.

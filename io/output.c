@@ -32,28 +32,44 @@ void editorRefreshScreen() {
 	abFree(&ab);
 }
 
-void editorDrawRows(abuf *ab) {
+void editorDrawRows(abuf *ab) 
+{
 	int y;
 
-	for (y = 0; y < E.screenrows; y++) {
+	for (y = 0; y < E.screenrows; y++) 
+	{
+		if (y >= E.numrows)
+		{
+			if (E.numrows == 0 && y == E.screenrows / 3) 
+			{
+				char welcome[32];
+				int welcomelen = snprintf(welcome, sizeof(welcome), "Kilo editor --version %s", EDITOR_VERSION);
+				if (welcomelen > E.screencols) welcomelen = E.screencols;
 
-		if (y == E.screenrows / 3) {
-			char welcome[32];
-			int welcomelen = snprintf(welcome, sizeof(welcome), "Kilo editor --version %s", EDITOR_VERSION);
+				// centering the message on the screen.
+				int padding = (E.screencols - welcomelen) / 2;
+				if (padding) 
+				{
+					abAppend(ab, "~", 1);
+					padding--;
+				}
+				while (padding--) abAppend(ab, " ", 1);
 
-			if (welcomelen > E.screencols) welcomelen = E.screencols;
-
-			// centering the message on the screen.
-			int padding = (E.screencols - welcomelen) / 2;
-			if (padding) {
-				abAppend(ab, "~", 1);
-				padding--;
+				abAppend(ab, welcome, welcomelen);
 			}
-			while (padding--) abAppend(ab, " ", 1);
-
-			abAppend(ab, welcome, welcomelen);
-		} else {
-			abAppend(ab, SCREEN_TILDE, SCREEN_TILDE_SIZE);
+			else 
+			{
+				abAppend(ab, SCREEN_TILDE, SCREEN_TILDE_SIZE);
+			}
+		}
+		else 
+		{
+			int len = E.row.size;
+			if (len > E.screencols)
+			{
+				len = E.screencols;
+			}
+			abAppend(ab, E.row.chars, len);
 		}
 
 		abAppend(ab, SCREEN_CLEAR_LINE, SCREEN_CLEAR_LINE_SIZE);
