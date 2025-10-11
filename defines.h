@@ -6,13 +6,13 @@
 #define KILO_DEFINES_H
 
 #define EDITOR_VERSION "0.0.1"
-#define EDITOR_TAB_STOP 8
+#define EDITOR_TAB_STOP 4 // usually it is 8.
 
 /**
  * It generates the control character corresponding to a given key character.
  * @param K the character in the alphabet table
  */
-#define CTRL_KEY(K) ((K) & 0x1f)
+#define CTRL_KEY(K) ((K)&0x1f)
 
 /**
  * Escape sequence.
@@ -51,4 +51,4 @@
 #define SCREEN_NEW_LINE_TILDE "~\r\n"
 #define SCREEN_NEW_LINE_TILDE_SIZE 3
 
-#endif //KILO_DEFINES_H
+#endif // KILO_DEFINES_H

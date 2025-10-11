@@ -10,12 +10,12 @@
 /**
  * This struct contains the size of text in each of the lines in the editor and the text on each of those lines.
  */
-typedef struct 
+typedef struct
 {
-	int size;
-	int rsize;
-	char *chars;
-	char *render;
+  int size;
+  int rsize;
+  char *chars;
+  char *render;
 } erow;
 
 /**
@@ -23,38 +23,40 @@ typedef struct
  */
 typedef struct
 {
-	// original terminal state.
-	struct termios orig_termios;
+  // original terminal state.
+  struct termios orig_termios;
 
-	int screenrows;
-	int screencols;
+  int screenrows;
+  int screencols;
 
-	// cursor position.
-	int cx, cy;
+  // cursor position.
+  int cx, cy;
+  int rx; // the index into the render field.
 
-	// the number of rows and the text on each row
-	int numrows;
-	erow *row;
-	// the row offset
-	int rowoff;
-	int coloff;
+  // the number of rows and the text on each row
+  int numrows;
+  erow *row;
+  // the row offset
+  int rowoff;
+  int coloff;
 } editorConfig;
 extern editorConfig E;
 
 // the directions keys.
-enum  editorKey {
-	ARROW_LEFT = 1000,
-	ARROW_RIGHT,
-	ARROW_UP,
-	ARROW_DOWN,
+enum editorKey
+{
+  ARROW_LEFT = 1000,
+  ARROW_RIGHT,
+  ARROW_UP,
+  ARROW_DOWN,
 
-	DEL_KEY,
+  DEL_KEY,
 
-	HOME_KEY,
-	END_KEY,
+  HOME_KEY,
+  END_KEY,
 
-	PAGE_UP,
-	PAGE_DOWN,
+  PAGE_UP,
+  PAGE_DOWN,
 };
 
-#endif //KILO_DATA_H
+#endif // KILO_DATA_H

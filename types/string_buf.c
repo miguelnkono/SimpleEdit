@@ -7,15 +7,18 @@
 #include <stdlib.h>
 #include <string.h>
 
-void abAppend(abuf *ab, const char *s, const int len) {
-	char *new_buf = realloc(ab->buf, ab->len + len);
-	if (new_buf == NULL) return;
+void abAppend(abuf *ab, const char *s, const int len)
+{
+  char *new_buf = realloc(ab->buf, ab->len + len);
+  if (new_buf == NULL)
+    return;
 
-	memcpy(&new_buf[ab->len], s, len);
-	ab->buf = new_buf;
-	ab->len += len;
+  memcpy(&new_buf[ab->len], s, len);
+  ab->buf = new_buf;
+  ab->len += len;
 }
 
-void abFree(abuf *ab) {
-	free(ab->buf);
+void abFree(abuf *ab)
+{
+  free(ab->buf);
 }

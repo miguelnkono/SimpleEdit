@@ -17,9 +17,9 @@ void die(const char *msg);
 /**
  * To manipulate terminal attribute:
  *	1) reads the attributes using the 'tcgetattr()' function and storing
- *those one in a struct. That struct is a termios struct. 2) modify the
- *attributes by hand. 3) reset the attribute back to the terminal using the
- *'tcsetattr()' function.
+ *     those one in a struct. That struct is a termios struct.
+ *  2) modify the attributes by hand.
+ *  3) reset the attribute back to the terminal using the 'tcsetattr()' function.
  */
 void enableRawMode();
 

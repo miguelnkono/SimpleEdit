@@ -1,7 +1,7 @@
 #include "operations.h"
 
-#include <string.h>
 #include "../defines.h"
+#include <string.h>
 
 void editorAppendRow(const char *s, size_t size)
 {
@@ -32,7 +32,7 @@ void editorUpdateRow(erow *row)
       tabs++;
     }
   }
-  
+
   free(row->render);
   row->render = malloc(row->size + tabs * (EDITOR_TAB_STOP - 1) + 1);
 
@@ -40,7 +40,7 @@ void editorUpdateRow(erow *row)
   for (j = 0; j < row->size; j++)
   {
     // render the tab.
-    if (row->chars[j] ==  '\t')
+    if (row->chars[j] == '\t')
     {
       row->render[idx++] = ' ';
       while (idx % EDITOR_TAB_STOP != 0)
@@ -48,7 +48,7 @@ void editorUpdateRow(erow *row)
         row->render[idx++] = ' ';
       }
     }
-    else 
+    else
     {
       row->render[idx++] = row->chars[j];
     }

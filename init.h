@@ -11,4 +11,4 @@
  */
 void initEditor();
 
-#endif //KILO_INIT_H
+#endif // KILO_INIT_H

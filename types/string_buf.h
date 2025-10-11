@@ -9,15 +9,19 @@
  * This is our string buffer type.
  * It will support only one operation: append.
  */
-typedef struct  {
-	char *buf;
-	int len;
-}abuf;
+typedef struct
+{
+  char *buf;
+  int len;
+} abuf;
 
 /**
  * Macro to initialize the buffer.
  */
-#define ABUF_INIT { ((void *)0), 0 }
+#define ABUF_INIT  \
+  {                \
+    ((void *)0), 0 \
+  }
 
 /**
  * This function will append a string to the global buffer of string.
@@ -35,4 +39,4 @@ void abAppend(abuf *ab, const char *s, int len);
  */
 void abFree(abuf *ab);
 
-#endif //KILO_STRING_BUF_H
+#endif // KILO_STRING_BUF_H
