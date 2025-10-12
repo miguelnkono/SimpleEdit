@@ -51,4 +51,16 @@
 #define SCREEN_NEW_LINE_TILDE "~\r\n"
 #define SCREEN_NEW_LINE_TILDE_SIZE 3
 
+/**
+ * Inverted colors.
+ */
+#define COLOR_INVERTED_COLOR "\x1b[7m"
+#define COLOR_INVERTED_COLOR_SIZE 4
+#define COLOR_NORMAL "\x1b[m"
+#define COLOR_NORMAL_SIZE 3
+#define COLOR_BOLD "\x1b[1m"
+#define COLOR_BOLD_SIZE 4
+#define COLOR_UNDERSCORE "\x1b[4m"
+#define COLOR_UNDERSCORE_SIZE 4
+
 #endif // KILO_DEFINES_H

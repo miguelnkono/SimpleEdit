@@ -6,6 +6,7 @@
 #define KILO_DATA_H
 
 #include <termios.h>
+#include <time.h>
 
 /**
  * This struct contains the size of text in each of the lines in the editor and the text on each of those lines.
@@ -36,6 +37,9 @@ typedef struct
   // the number of rows and the text on each row
   int numrows;
   erow *row;
+  char *filename;
+  char statussmg[80];
+  time_t statussmg_time;
   // the row offset
   int rowoff;
   int coloff;

@@ -78,5 +78,8 @@ CMakeFiles/kilo.dir/terminal/terminal.c.o: \
  /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
- /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
+ /usr/include/x86_64-linux-gnu/bits/termios-misc.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /home/gost/projects/kilo/terminal/../defines.h

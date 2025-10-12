@@ -51,8 +51,11 @@ CMakeFiles/kilo.dir/io/operations.c.o: \
  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
  /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
- /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
- /home/gost/projects/kilo/io/../defines.h /usr/include/string.h \
+ /usr/include/x86_64-linux-gnu/sys/ttydefaults.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+ /home/gost/projects/kilo/io/../defines.h /usr/include/string.h \
  /usr/include/strings.h

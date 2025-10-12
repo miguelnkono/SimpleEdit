@@ -5,7 +5,7 @@
 #ifndef KILO_OUTPUT_H
 #define KILO_OUTPUT_H
 
-#include "../data.h"
+// #include "../data.h"
 #include "../types/string_buf.h"
 
 /**
@@ -23,4 +23,14 @@ void editorDrawRows(abuf *ab);
  */
 void editorScroll();
 
-#endif //KILO_OUTPUT_H
+/**
+ * Function to display the status bar of the editor.
+ */
+void editorDrawStatusBar(abuf *ab);
+
+/**
+ * Function to set the message that will be display below the status bar.
+ */
+void editorSetStatusMessage(const char *fmt, ...);
+
+#endif // KILO_OUTPUT_H

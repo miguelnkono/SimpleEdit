@@ -4,10 +4,13 @@
 
 #include "output.h"
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
 #include <unistd.h>
 
+#include "../data.h"
 #include "../defines.h"
 #include "../types/string_buf.h"
 
@@ -38,6 +41,8 @@ void editorRefreshScreen()
 
   // draw the tildes and reposition the cursor.
   editorDrawRows(&ab);
+  // draw the status bar.
+  editorDrawStatusBar(&ab);
 
   // allow the user to move the cursor.
   char buf[32];
@@ -97,11 +102,12 @@ void editorDrawRows(abuf *ab)
     }
 
     abAppend(ab, SCREEN_CLEAR_LINE, SCREEN_CLEAR_LINE_SIZE);
-    if (y < E.screenrows - 1)
-    {
-      // write(STDOUT_FILENO, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
-      abAppend(ab, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
-    }
+    // if (y < E.screenrows - 1)
+    // {
+    //   // write(STDOUT_FILENO, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
+    //   abAppend(ab, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
+    // }
+    abAppend(ab, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
   }
 }
 
@@ -132,4 +138,42 @@ void editorScroll()
   {
     E.coloff = E.rx - E.screencols + 1;
   }
+}
+
+void editorDrawStatusBar(abuf *ab)
+{
+  abAppend(ab, COLOR_INVERTED_COLOR, COLOR_INVERTED_COLOR_SIZE);
+
+  char status[80], rstatus[80];
+  int len = snprintf(status, sizeof(status), "%.20s - %d lines",
+                     E.filename ? E.filename : "[No Name]", E.numrows);
+  int rlen = snprintf(rstatus, sizeof(rstatus), "%d/%d", E.cy + 1, E.numrows);
+  if (len > E.screencols)
+    len = E.screencols;
+  abAppend(ab, status, len);
+  while (len < E.screencols)
+  {
+    if (E.screencols - len == rlen)
+    {
+      abAppend(ab, rstatus, rlen);
+      break;
+    }
+    else
+    {
+      abAppend(ab, " ", 1);
+      len++;
+    }
+  }
+
+  abAppend(ab, COLOR_NORMAL, COLOR_NORMAL_SIZE);
+  abAppend(ab, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
+}
+
+void editorSetStatusMessage(const char *fmt, ...)
+{
+  va_list ap;
+  va_start(ap, fmt);
+  vsnprintf(E.statussmg, sizeof(E.statussmg), fmt, ap);
+  va_end(ap);
+  E.statussmg_time = time(((void *)0)); // time(NULL)
 }
