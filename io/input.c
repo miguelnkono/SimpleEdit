@@ -3,12 +3,15 @@
 //
 
 #include "editor_operations/edit.h"
+#include "output.h"
 #define _DEFAULT_SOURCE
 #define _BSD_SOURCE
 #define _GNU_SOURCE
 
 #include "input.h"
 
+#include <errno.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -34,6 +37,11 @@ void editorProcessKeypress()
     write(STDOUT_FILENO, "\x1b[1;1H", 3);
     exit(0);
     break;
+
+  case CTRL_KEY('s'):
+    editorSave();
+    break;
+
   case ARROW_LEFT:
   case ARROW_RIGHT:
   case ARROW_UP:
@@ -167,4 +175,52 @@ void editorOpen(const char *filename)
 
   free(line);
   fclose(fp);
+}
+
+char *editorRowsToString(int *buflen)
+{
+  int totallength = 0;
+  for (int i = 0; i < E.numrows; i++)
+    totallength += E.row[i].size + 1;
+  *buflen = totallength;
+
+  char *buf = malloc(totallength);
+  char *p = buf;
+
+  for (int i = 0; i < E.numrows; i++)
+  {
+    memcpy(p, E.row[i].chars, E.row[i].size);
+    p += E.row[i].size; // here we do pointer arithmetic to properly repositionate the p pointer address to wait for the next character slice.
+    *p = '\n';
+    p++;
+  }
+
+  return buf;
+}
+
+void editorSave()
+{
+  if (E.filename == NULL)
+    return;
+
+  int len;
+  char *content = editorRowsToString(&len);
+
+  int fd = open(E.filename, O_RDWR | O_CREAT, 0644);
+  if (fd != -1)
+  {
+    if (ftruncate(fd, len) != -1)
+    {
+      if (write(fd, content, len) == len)
+      {
+        close(fd);
+        free(content);
+        editorSetStatusMessage("%d bytes written to disk", len);
+        return;
+      }
+    }
+    close(fd);
+  }
+  free(content);
+  editorSetStatusMessage("Can't save. I/O error: %s", strerror(errno));
 }

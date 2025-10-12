@@ -37,6 +37,7 @@ typedef struct
   // the number of rows and the text on each row
   int numrows;
   erow *row;
+  int dirty;
   char *filename;
   char statussmg[80];
   time_t statussmg_time;

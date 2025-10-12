@@ -27,4 +27,14 @@ void editorMoveCursor(int key);
  */
 void editorOpen(const char *filename);
 
+/**
+ * Function to transform all the rows of characters into a single big string.
+ */
+char *editorRowsToString(int *buflen);
+
+/**
+ * Function to save the content into a file.
+ */
+void editorSave();
+
 #endif // KILO_INPUT_H
