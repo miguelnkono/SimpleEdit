@@ -33,4 +33,9 @@ void editorDrawStatusBar(abuf *ab);
  */
 void editorSetStatusMessage(const char *fmt, ...);
 
+/**
+ * Function to display a message in the status bar.
+ */
+void editorDrawMessageBar(abuf *ab);
+
 #endif // KILO_OUTPUT_H

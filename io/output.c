@@ -43,6 +43,8 @@ void editorRefreshScreen()
   editorDrawRows(&ab);
   // draw the status bar.
   editorDrawStatusBar(&ab);
+  // draw the status bar message.
+  editorDrawMessageBar(&ab);
 
   // allow the user to move the cursor.
   char buf[32];
@@ -176,4 +178,14 @@ void editorSetStatusMessage(const char *fmt, ...)
   vsnprintf(E.statussmg, sizeof(E.statussmg), fmt, ap);
   va_end(ap);
   E.statussmg_time = time(((void *)0)); // time(NULL)
+}
+
+void editorDrawMessageBar(abuf *ab)
+{
+  abAppend(ab, SCREEN_CLEAR_LINE, SCREEN_CLEAR_LINE_SIZE);
+  int msglen = strlen(E.statussmg);
+  if (msglen > E.screencols)
+    msglen = E.screencols;
+  if (msglen && time((void *)0) - E.statussmg_time < 5)
+    abAppend(ab, E.statussmg, msglen);
 }
