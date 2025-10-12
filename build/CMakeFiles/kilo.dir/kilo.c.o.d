@@ -24,6 +24,5 @@ CMakeFiles/kilo.dir/kilo.c.o: /home/gost/projects/kilo/kilo.c \
  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
  /home/gost/projects/kilo/init.h /home/gost/projects/kilo/io/input.h \
  /home/gost/projects/kilo/io/output.h \
- /home/gost/projects/kilo/io/../data.h \
  /home/gost/projects/kilo/io/../types/string_buf.h \
  /home/gost/projects/kilo/terminal/terminal.h

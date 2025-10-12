@@ -183,8 +183,9 @@ CMakeFiles/kilo.dir/io/operations.c.o: ../io/operations.c \
 CMakeFiles/kilo.dir/io/output.c.o: ../io/output.c \
   /usr/include/stdc-predef.h \
   ../io/output.h \
-  ../data.h \
-  /usr/include/termios.h \
+  ../types/string_buf.h \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
   /usr/include/features-time64.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -193,25 +194,11 @@ CMakeFiles/kilo.dir/io/output.c.o: ../io/output.c \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
-  /usr/include/x86_64-linux-gnu/bits/termios.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
-  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
-  ../types/string_buf.h \
-  /usr/include/stdio.h \
-  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
@@ -232,6 +219,19 @@ CMakeFiles/kilo.dir/io/output.c.o: ../io/output.c \
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  ../data.h \
+  /usr/include/termios.h \
+  /usr/include/x86_64-linux-gnu/bits/termios.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
+  /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
+  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
   ../defines.h
 
 CMakeFiles/kilo.dir/kilo.c.o: ../kilo.c \
@@ -263,7 +263,6 @@ CMakeFiles/kilo.dir/kilo.c.o: ../kilo.c \
   ../init.h \
   ../io/input.h \
   ../io/output.h \
-  ../data.h \
   ../types/string_buf.h \
   ../terminal/terminal.h
 
