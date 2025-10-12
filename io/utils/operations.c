@@ -1,6 +1,6 @@
 #include "operations.h"
 
-#include "../defines.h"
+#include "../../defines.h"
 #include <string.h>
 
 void editorAppendRow(const char *s, size_t size)

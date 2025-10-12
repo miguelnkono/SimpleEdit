@@ -1,6 +1,7 @@
 CMakeFiles/kilo.dir/io/input.c.o: /home/gost/projects/kilo/io/input.c \
- /usr/include/stdc-predef.h /home/gost/projects/kilo/io/input.h \
- /usr/include/stdio.h \
+ /usr/include/stdc-predef.h \
+ /home/gost/projects/kilo/io/editor_operations/edit.h \
+ /home/gost/projects/kilo/io/input.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -76,4 +77,5 @@ CMakeFiles/kilo.dir/io/input.c.o: /home/gost/projects/kilo/io/input.c \
  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
  /home/gost/projects/kilo/io/../defines.h \
  /home/gost/projects/kilo/io/../terminal/terminal.h \
- /home/gost/projects/kilo/io/operations.h
+ /home/gost/projects/kilo/io/utils/operations.h \
+ /home/gost/projects/kilo/io/utils/../../data.h

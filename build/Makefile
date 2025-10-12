@@ -153,6 +153,30 @@ init.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/init.c.s
 .PHONY : init.c.s
 
+io/editor_operations/edit.o: io/editor_operations/edit.c.o
+.PHONY : io/editor_operations/edit.o
+
+# target to build an object file
+io/editor_operations/edit.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/editor_operations/edit.c.o
+.PHONY : io/editor_operations/edit.c.o
+
+io/editor_operations/edit.i: io/editor_operations/edit.c.i
+.PHONY : io/editor_operations/edit.i
+
+# target to preprocess a source file
+io/editor_operations/edit.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/editor_operations/edit.c.i
+.PHONY : io/editor_operations/edit.c.i
+
+io/editor_operations/edit.s: io/editor_operations/edit.c.s
+.PHONY : io/editor_operations/edit.s
+
+# target to generate assembly for a file
+io/editor_operations/edit.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/editor_operations/edit.c.s
+.PHONY : io/editor_operations/edit.c.s
+
 io/input.o: io/input.c.o
 .PHONY : io/input.o
 
@@ -177,30 +201,6 @@ io/input.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/input.c.s
 .PHONY : io/input.c.s
 
-io/operations.o: io/operations.c.o
-.PHONY : io/operations.o
-
-# target to build an object file
-io/operations.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/operations.c.o
-.PHONY : io/operations.c.o
-
-io/operations.i: io/operations.c.i
-.PHONY : io/operations.i
-
-# target to preprocess a source file
-io/operations.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/operations.c.i
-.PHONY : io/operations.c.i
-
-io/operations.s: io/operations.c.s
-.PHONY : io/operations.s
-
-# target to generate assembly for a file
-io/operations.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/operations.c.s
-.PHONY : io/operations.c.s
-
 io/output.o: io/output.c.o
 .PHONY : io/output.o
 
@@ -224,6 +224,54 @@ io/output.s: io/output.c.s
 io/output.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/output.c.s
 .PHONY : io/output.c.s
+
+io/utils/insertions.o: io/utils/insertions.c.o
+.PHONY : io/utils/insertions.o
+
+# target to build an object file
+io/utils/insertions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/insertions.c.o
+.PHONY : io/utils/insertions.c.o
+
+io/utils/insertions.i: io/utils/insertions.c.i
+.PHONY : io/utils/insertions.i
+
+# target to preprocess a source file
+io/utils/insertions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/insertions.c.i
+.PHONY : io/utils/insertions.c.i
+
+io/utils/insertions.s: io/utils/insertions.c.s
+.PHONY : io/utils/insertions.s
+
+# target to generate assembly for a file
+io/utils/insertions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/insertions.c.s
+.PHONY : io/utils/insertions.c.s
+
+io/utils/operations.o: io/utils/operations.c.o
+.PHONY : io/utils/operations.o
+
+# target to build an object file
+io/utils/operations.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/operations.c.o
+.PHONY : io/utils/operations.c.o
+
+io/utils/operations.i: io/utils/operations.c.i
+.PHONY : io/utils/operations.i
+
+# target to preprocess a source file
+io/utils/operations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/operations.c.i
+.PHONY : io/utils/operations.c.i
+
+io/utils/operations.s: io/utils/operations.c.s
+.PHONY : io/utils/operations.s
+
+# target to generate assembly for a file
+io/utils/operations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/operations.c.s
+.PHONY : io/utils/operations.c.s
 
 kilo.o: kilo.c.o
 .PHONY : kilo.o
@@ -309,15 +357,21 @@ help:
 	@echo "... init.o"
 	@echo "... init.i"
 	@echo "... init.s"
+	@echo "... io/editor_operations/edit.o"
+	@echo "... io/editor_operations/edit.i"
+	@echo "... io/editor_operations/edit.s"
 	@echo "... io/input.o"
 	@echo "... io/input.i"
 	@echo "... io/input.s"
-	@echo "... io/operations.o"
-	@echo "... io/operations.i"
-	@echo "... io/operations.s"
 	@echo "... io/output.o"
 	@echo "... io/output.i"
 	@echo "... io/output.s"
+	@echo "... io/utils/insertions.o"
+	@echo "... io/utils/insertions.i"
+	@echo "... io/utils/insertions.s"
+	@echo "... io/utils/operations.o"
+	@echo "... io/utils/operations.i"
+	@echo "... io/utils/operations.s"
 	@echo "... kilo.o"
 	@echo "... kilo.i"
 	@echo "... kilo.s"

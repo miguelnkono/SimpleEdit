@@ -3,7 +3,7 @@
 
 #include <stdlib.h>
 
-#include "../data.h"
+#include "../../data.h"
 
 /**
  * This function appends a row to the editor at the end of the current text.

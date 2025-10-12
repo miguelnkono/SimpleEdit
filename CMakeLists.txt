@@ -12,8 +12,12 @@ add_executable(kilo kilo.c
     io/input.h
     io/output.c
     io/output.h
-    io/operations.c 
-    io/operations.h
+    io/utils/operations.c
+    io/utils/operations.h
+    io/utils/insertions.h
+    io/utils/insertions.c
+    io/editor_operations/edit.c
+    io/editor_operations/edit.h
     init.c
     init.h
     types/string_buf.c

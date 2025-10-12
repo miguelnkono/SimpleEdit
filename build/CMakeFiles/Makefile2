@@ -81,12 +81,12 @@ clean: CMakeFiles/kilo.dir/clean
 CMakeFiles/kilo.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target kilo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target kilo"
 .PHONY : CMakeFiles/kilo.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/kilo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gost/projects/kilo/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gost/projects/kilo/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/kilo.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gost/projects/kilo/build/CMakeFiles 0
 .PHONY : CMakeFiles/kilo.dir/rule

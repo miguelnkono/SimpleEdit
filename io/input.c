@@ -2,6 +2,7 @@
 // Created by gost on 9/10/25.
 //
 
+#include "editor_operations/edit.h"
 #define _DEFAULT_SOURCE
 #define _BSD_SOURCE
 #define _GNU_SOURCE
@@ -17,7 +18,7 @@
 #include "../data.h"
 #include "../defines.h"
 #include "../terminal/terminal.h"
-#include "operations.h"
+#include "utils/operations.h"
 
 void editorProcessKeypress()
 {
@@ -64,6 +65,10 @@ void editorProcessKeypress()
     // E.cx = E.screencols - 1;
     if (E.cy < E.numrows)
       E.cx = E.row[E.cy].size;
+    break;
+
+  default:
+    editorInsertChar(c);
     break;
   }
 }
