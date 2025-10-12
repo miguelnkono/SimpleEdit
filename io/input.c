@@ -26,6 +26,9 @@ void editorProcessKeypress()
 
   switch (c)
   {
+  case '\r':
+    // todo
+    break;
   case CTRL_KEY('q'):
     write(STDOUT_FILENO, "\x1b[2J", 4);
     write(STDOUT_FILENO, "\x1b[1;1H", 3);
@@ -61,10 +64,21 @@ void editorProcessKeypress()
   case HOME_KEY:
     E.cx = 0;
     break;
+
+  case BACKSPACE:
+  case CTRL_KEY('h'):
+  case DEL_KEY:
+    // todo
+    break;
+
   case END_KEY:
     // E.cx = E.screencols - 1;
     if (E.cy < E.numrows)
       E.cx = E.row[E.cy].size;
+    break;
+
+  case CTRL_KEY('l'):
+  case '\x1b':
     break;
 
   default:

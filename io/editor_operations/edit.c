@@ -10,4 +10,5 @@ void editorInsertChar(int c)
     editorAppendRow("", 1);
   }
   editorRowInsertCharacter(&E.row[E.cy], E.cx, c);
+  E.cx++;
 }
