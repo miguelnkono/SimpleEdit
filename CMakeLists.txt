@@ -21,4 +21,5 @@ add_executable(kilo kilo.c
     init.c
     init.h
     types/string_buf.c
-    types/string_buf.h)
+    types/string_buf.h
+)
