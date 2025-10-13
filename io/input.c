@@ -25,6 +25,8 @@
 
 void editorProcessKeypress()
 {
+  static int quit_times = EDITOR_QUIT_TIME;
+
   const int c = editorReadKey(); // we read the character from the terminal.
 
   switch (c)
@@ -33,6 +35,15 @@ void editorProcessKeypress()
     // todo
     break;
   case CTRL_KEY('q'):
+    if (E.dirty && quit_times > 0)
+    {
+      editorSetStatusMessage("WARNING!!! File has unsaved changes. "
+                             "Press Ctrl-Q %d more times to quite.",
+                             quit_times);
+      quit_times--;
+      return;
+    }
+
     write(STDOUT_FILENO, "\x1b[2J", 4);
     write(STDOUT_FILENO, "\x1b[1;1H", 3);
     exit(0);
@@ -93,6 +104,8 @@ void editorProcessKeypress()
     editorInsertChar(c);
     break;
   }
+
+  quit_times = EDITOR_QUIT_TIME;
 }
 
 void editorMoveCursor(const int key)
@@ -175,6 +188,7 @@ void editorOpen(const char *filename)
 
   free(line);
   fclose(fp);
+  E.dirty = 0;
 }
 
 char *editorRowsToString(int *buflen)
@@ -215,6 +229,7 @@ void editorSave()
       {
         close(fd);
         free(content);
+        E.dirty = 0;
         editorSetStatusMessage("%d bytes written to disk", len);
         return;
       }

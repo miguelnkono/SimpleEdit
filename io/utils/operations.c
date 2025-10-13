@@ -18,6 +18,7 @@ void editorAppendRow(const char *s, size_t size)
   editorUpdateRow(&E.row[at]);
 
   E.numrows++;
+  E.dirty++;
 }
 
 void editorUpdateRow(erow *row)

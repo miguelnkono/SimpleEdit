@@ -13,4 +13,5 @@ void editorRowInsertCharacter(erow *erow, int at, int c)
   erow->size++;
   erow->chars[at] = c;
   editorUpdateRow(erow);
+  E.dirty++;
 }

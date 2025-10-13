@@ -6,7 +6,8 @@
 #define KILO_DEFINES_H
 
 #define EDITOR_VERSION "0.0.1"
-#define EDITOR_TAB_STOP 4 // usually it is 8.
+#define EDITOR_TAB_STOP 4  // usually it is 8.
+#define EDITOR_QUIT_TIME 3 // the number of times the user should press the ctrl-q to quit the editor in case of unsaved file.
 
 /**
  * It generates the control character corresponding to a given key character.
