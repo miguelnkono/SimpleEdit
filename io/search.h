@@ -11,4 +11,9 @@
  */
 void editorFind();
 
+/**
+ * Function to find a macth in the entire editor space for each key presses by the user.
+ * */
+void editorFindCallback(char *query, int key);
+
 #endif // SEARCH_H

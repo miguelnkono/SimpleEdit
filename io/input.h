@@ -41,7 +41,9 @@ void editorSave();
  * Function to ask the user to enter the name of the file.
  *
  * @param  prompt  the prompt to display to the user. The prompt should be formatted string.
+ * @param  callback which is a function that will get call when the user type a character. The
+ * callback take the current search query and the last key enterd by the user.
  */
-char *editorPrompt(const char *prompt);
+char *editorPrompt(const char *prompt, void (*callback)(char *, int));
 
 #endif // KILO_INPUT_H

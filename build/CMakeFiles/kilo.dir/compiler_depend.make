@@ -286,6 +286,7 @@ CMakeFiles/kilo.dir/io/output.c.o: ../io/output.c \
 CMakeFiles/kilo.dir/io/search.c.o: ../io/search.c \
   /usr/include/stdc-predef.h \
   ../io/search.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
   /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/features.h \
@@ -296,7 +297,6 @@ CMakeFiles/kilo.dir/io/search.c.o: ../io/search.c \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -350,6 +350,7 @@ CMakeFiles/kilo.dir/io/search.c.o: ../io/search.c \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  ../defines.h \
   ../io/input.h \
   ../io/output.h \
   ../types/string_buf.h

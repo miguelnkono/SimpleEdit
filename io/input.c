@@ -8,7 +8,7 @@
 #include <stddef.h>
 // #define _DEFAULT_SOURCE
 #define _BSD_SOURCE
-#define _GNU_SOURCE
+// #define _GNU_SOURCE
 
 #include "input.h"
 
@@ -207,7 +207,7 @@ char *editorRowsToString(int *buflen)
     totallength += E.row[i].size + 1;
   *buflen = totallength;
 
-  char *buf = malloc(totallength);
+  char *buf = (char *)malloc(totallength);
   char *p = buf;
 
   for (int i = 0; i < E.numrows; i++)
@@ -225,7 +225,7 @@ void editorSave()
 {
   if (E.filename == NULL)
   {
-    E.filename = editorPrompt("Save as: %s");
+    E.filename = editorPrompt("Save as: %s", NULL);
     if (E.filename == ((void *)0))
     {
       editorSetStatusMessage("Save aborted");
@@ -256,10 +256,10 @@ void editorSave()
   editorSetStatusMessage("Can't save. I/O error: %s", strerror(errno));
 }
 
-char *editorPrompt(const char *prompt)
+char *editorPrompt(const char *prompt, void (*callback)(char *, int))
 {
   size_t bufsize = 128;
-  char *buf = malloc(bufsize);
+  char *buf = (char *)malloc(bufsize);
 
   size_t buflen = 0;
   buf[0] = '\0';
@@ -280,8 +280,10 @@ char *editorPrompt(const char *prompt)
     {
       // we clear the status bar, free the buf buffer and quit the prompt.
       editorSetStatusMessage("");
+      if (callback)
+        callback(buf, c);
       free(buf);
-      return ((void *)0);
+      return ((char *)0);
     }
     else if (c == '\r')
     {
@@ -289,6 +291,8 @@ char *editorPrompt(const char *prompt)
       if (buflen != 0)
       {
         editorSetStatusMessage("");
+        if (callback)
+          callback(buf, c);
         return buf;
       }
     }
@@ -299,10 +303,13 @@ char *editorPrompt(const char *prompt)
       {
         // if there is no more enough size, we double the size of the buffer.
         buflen *= 2;
-        buf = realloc(buf, buflen);
+        buf = (char *)realloc(buf, buflen);
       }
       buf[buflen++] = c;
       buf[buflen] = '\0';
     }
+
+    if (callback)
+      callback(buf, c);
   }
 }
