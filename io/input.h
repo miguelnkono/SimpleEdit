@@ -40,7 +40,7 @@ void editorSave();
 /**
  * Function to ask the user to enter the name of the file.
  *
- * @param  prompt  the prompt to display to the user.
+ * @param  prompt  the prompt to display to the user. The prompt should be formatted string.
  */
 char *editorPrompt(const char *prompt);
 

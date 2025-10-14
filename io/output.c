@@ -14,6 +14,7 @@
 #include "../defines.h"
 #include "../types/string_buf.h"
 
+// function to convert the cx's into cy's coordinates.
 static int editorRowCxToRx(erow *row, int cx)
 {
   int rx = 0;
@@ -28,6 +29,27 @@ static int editorRowCxToRx(erow *row, int cx)
   }
 
   return rx;
+}
+
+// function to convert rx's into cx's coordinates.
+int editorRowRxToCx(erow *row, int rx)
+{
+  int cur_rx = 0;
+  int cx;
+
+  for (cx = 0; cx < row->size; cx++)
+  {
+    if (row->chars[cx] == '\t')
+    {
+      cur_rx += (EDITOR_TAB_STOP - 1) - (cur_rx % EDITOR_TAB_STOP);
+    }
+    cur_rx++;
+
+    if (cur_rx > rx)
+      return cx;
+  }
+
+  return cx;
 }
 
 void editorRefreshScreen()
@@ -46,7 +68,7 @@ void editorRefreshScreen()
   // draw the status bar message.
   editorDrawMessageBar(&ab);
 
-  // allow the user to move the cursor.
+  // display the position of the cursor in the text editor.
   char buf[32];
   snprintf(buf, sizeof(buf), CURSOR_SET_POSITION, (E.cy - E.rowoff) + 1, (E.rx - E.coloff) + 1);
   abAppend(&ab, buf, (int)strlen(buf));

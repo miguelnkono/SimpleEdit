@@ -5,7 +5,7 @@
 #ifndef KILO_OUTPUT_H
 #define KILO_OUTPUT_H
 
-// #include "../data.h"
+#include "../data.h"
 #include "../types/string_buf.h"
 
 /**
@@ -37,5 +37,10 @@ void editorSetStatusMessage(const char *fmt, ...);
  * Function to display a message in the status bar.
  */
 void editorDrawMessageBar(abuf *ab);
+
+/**
+ * Function to convert the rx's coordinates into cx's coordinate.
+ */
+int editorRowRxToCx(erow *row, int rx);
 
 #endif // KILO_OUTPUT_H

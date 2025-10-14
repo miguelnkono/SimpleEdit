@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/kilo.dir/io/input.c.o.d"
   "CMakeFiles/kilo.dir/io/output.c.o"
   "CMakeFiles/kilo.dir/io/output.c.o.d"
+  "CMakeFiles/kilo.dir/io/search.c.o"
+  "CMakeFiles/kilo.dir/io/search.c.o.d"
   "CMakeFiles/kilo.dir/io/utils/deletions.c.o"
   "CMakeFiles/kilo.dir/io/utils/deletions.c.o.d"
   "CMakeFiles/kilo.dir/io/utils/insertions.c.o"

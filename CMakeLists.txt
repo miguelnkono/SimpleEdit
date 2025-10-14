@@ -20,6 +20,8 @@ add_executable(kilo kilo.c
     io/utils/deletions.h
     io/editor_operations/edit.c
     io/editor_operations/edit.h
+    io/search.c
+    io/search.h
     init.c
     init.h
     types/string_buf.c

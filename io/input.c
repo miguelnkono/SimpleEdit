@@ -4,8 +4,9 @@
 
 #include "editor_operations/edit.h"
 #include "output.h"
+#include "search.h"
 #include <stddef.h>
-#define _DEFAULT_SOURCE
+// #define _DEFAULT_SOURCE
 #define _BSD_SOURCE
 #define _GNU_SOURCE
 
@@ -81,6 +82,10 @@ void editorProcessKeypress()
     }
   }
   break;
+
+  case CTRL_KEY('f'):
+    editorFind();
+    break;
 
   case HOME_KEY:
     E.cx = 0;
@@ -264,20 +269,23 @@ char *editorPrompt(const char *prompt)
     editorSetStatusMessage(prompt, buf);
     editorRefreshScreen();
 
-    int c = editorReadKey();
+    int c = editorReadKey(); // read a character typed by the user.
     if (c == DEL_KEY || c == CTRL_KEY('h') || c == BACKSPACE)
     {
+      // we delete one character at the time if the user presses the DEL, Ctrl_H or BACKSPACE character.
       if (buflen != 0)
         buf[--buflen] = '\0';
     }
     else if (c == ESCAPE_SEQUENCE)
     {
+      // we clear the status bar, free the buf buffer and quit the prompt.
       editorSetStatusMessage("");
       free(buf);
       return ((void *)0);
     }
     else if (c == '\r')
     {
+      // we valide the prompt only if there is something inside the prompt.
       if (buflen != 0)
       {
         editorSetStatusMessage("");
@@ -286,8 +294,10 @@ char *editorPrompt(const char *prompt)
     }
     else if (!iscntrl(c) && c < 128)
     {
+      // we read (only the non-control) character typed by the user.
       if (buflen == bufsize - 1)
       {
+        // if there is no more enough size, we double the size of the buffer.
         buflen *= 2;
         buf = realloc(buf, buflen);
       }
