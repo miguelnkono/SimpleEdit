@@ -21,6 +21,27 @@ void editorAppendRow(const char *s, size_t size)
   E.dirty++;
 }
 
+void editorInsertRow(int at, const char *s, size_t size)
+{
+  if (at < 0 || at > E.numrows)
+    return;
+
+  E.row = realloc(E.row, sizeof(erow) * (E.numrows + 1));
+  memmove(&E.row[at + 1], &E.row[at], sizeof(erow) * (E.numrows - at));
+
+  E.row[at].size = size;
+  E.row[at].chars = malloc(size + 1);
+  memcpy(E.row[at].chars, s, size);
+  E.row[at].chars[size] = '\0';
+
+  E.row[at].rsize = 0;
+  E.row[at].render = NULL;
+  editorUpdateRow(&E.row[at]);
+
+  E.numrows++;
+  E.dirty++;
+}
+
 void editorUpdateRow(erow *row)
 {
   int tabs = 0;

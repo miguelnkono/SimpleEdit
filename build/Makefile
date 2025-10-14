@@ -225,6 +225,30 @@ io/output.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/output.c.s
 .PHONY : io/output.c.s
 
+io/utils/deletions.o: io/utils/deletions.c.o
+.PHONY : io/utils/deletions.o
+
+# target to build an object file
+io/utils/deletions.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/deletions.c.o
+.PHONY : io/utils/deletions.c.o
+
+io/utils/deletions.i: io/utils/deletions.c.i
+.PHONY : io/utils/deletions.i
+
+# target to preprocess a source file
+io/utils/deletions.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/deletions.c.i
+.PHONY : io/utils/deletions.c.i
+
+io/utils/deletions.s: io/utils/deletions.c.s
+.PHONY : io/utils/deletions.s
+
+# target to generate assembly for a file
+io/utils/deletions.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/io/utils/deletions.c.s
+.PHONY : io/utils/deletions.c.s
+
 io/utils/insertions.o: io/utils/insertions.c.o
 .PHONY : io/utils/insertions.o
 
@@ -366,6 +390,9 @@ help:
 	@echo "... io/output.o"
 	@echo "... io/output.i"
 	@echo "... io/output.s"
+	@echo "... io/utils/deletions.o"
+	@echo "... io/utils/deletions.i"
+	@echo "... io/utils/deletions.s"
 	@echo "... io/utils/insertions.o"
 	@echo "... io/utils/insertions.i"
 	@echo "... io/utils/insertions.s"

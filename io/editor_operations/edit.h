@@ -12,4 +12,14 @@
  */
 void editorInsertChar(int c);
 
+/**
+ * Function to delete a single character.
+ */
+void editorDelChar();
+
+/**
+ * Function to insert a new line.
+ */
+void editorInsertNewLine();
+
 #endif // EDIT_H

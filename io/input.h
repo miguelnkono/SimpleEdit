@@ -37,4 +37,11 @@ char *editorRowsToString(int *buflen);
  */
 void editorSave();
 
+/**
+ * Function to ask the user to enter the name of the file.
+ *
+ * @param  prompt  the prompt to display to the user.
+ */
+char *editorPrompt(const char *prompt);
+
 #endif // KILO_INPUT_H

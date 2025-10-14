@@ -4,12 +4,14 @@
 
 #include "editor_operations/edit.h"
 #include "output.h"
+#include <stddef.h>
 #define _DEFAULT_SOURCE
 #define _BSD_SOURCE
 #define _GNU_SOURCE
 
 #include "input.h"
 
+#include <ctype.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -32,7 +34,7 @@ void editorProcessKeypress()
   switch (c)
   {
   case '\r':
-    // todo
+    editorInsertNewLine();
     break;
   case CTRL_KEY('q'):
     if (E.dirty && quit_times > 0)
@@ -87,7 +89,9 @@ void editorProcessKeypress()
   case BACKSPACE:
   case CTRL_KEY('h'):
   case DEL_KEY:
-    // todo
+    if (c == DEL_KEY)
+      editorMoveCursor(ARROW_RIGHT);
+    editorDelChar();
     break;
 
   case END_KEY:
@@ -182,7 +186,7 @@ void editorOpen(const char *filename)
       {
         linelen--;
       }
-      editorAppendRow(line, linelen);
+      editorInsertRow(E.numrows, line, linelen);
     }
   }
 
@@ -215,7 +219,14 @@ char *editorRowsToString(int *buflen)
 void editorSave()
 {
   if (E.filename == NULL)
-    return;
+  {
+    E.filename = editorPrompt("Save as: %s");
+    if (E.filename == ((void *)0))
+    {
+      editorSetStatusMessage("Save aborted");
+      return;
+    }
+  }
 
   int len;
   char *content = editorRowsToString(&len);
@@ -238,4 +249,50 @@ void editorSave()
   }
   free(content);
   editorSetStatusMessage("Can't save. I/O error: %s", strerror(errno));
+}
+
+char *editorPrompt(const char *prompt)
+{
+  size_t bufsize = 128;
+  char *buf = malloc(bufsize);
+
+  size_t buflen = 0;
+  buf[0] = '\0';
+
+  while (1)
+  {
+    editorSetStatusMessage(prompt, buf);
+    editorRefreshScreen();
+
+    int c = editorReadKey();
+    if (c == DEL_KEY || c == CTRL_KEY('h') || c == BACKSPACE)
+    {
+      if (buflen != 0)
+        buf[--buflen] = '\0';
+    }
+    else if (c == ESCAPE_SEQUENCE)
+    {
+      editorSetStatusMessage("");
+      free(buf);
+      return ((void *)0);
+    }
+    else if (c == '\r')
+    {
+      if (buflen != 0)
+      {
+        editorSetStatusMessage("");
+        return buf;
+      }
+    }
+    else if (!iscntrl(c) && c < 128)
+    {
+      if (buflen == bufsize - 1)
+      {
+        buflen *= 2;
+        buf = realloc(buf, buflen);
+      }
+      buf[buflen++] = c;
+      buf[buflen] = '\0';
+    }
+  }
 }

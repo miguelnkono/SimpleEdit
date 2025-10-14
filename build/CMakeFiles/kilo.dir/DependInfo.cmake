@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/gost/projects/kilo/io/editor_operations/edit.c" "CMakeFiles/kilo.dir/io/editor_operations/edit.c.o" "gcc" "CMakeFiles/kilo.dir/io/editor_operations/edit.c.o.d"
   "/home/gost/projects/kilo/io/input.c" "CMakeFiles/kilo.dir/io/input.c.o" "gcc" "CMakeFiles/kilo.dir/io/input.c.o.d"
   "/home/gost/projects/kilo/io/output.c" "CMakeFiles/kilo.dir/io/output.c.o" "gcc" "CMakeFiles/kilo.dir/io/output.c.o.d"
+  "/home/gost/projects/kilo/io/utils/deletions.c" "CMakeFiles/kilo.dir/io/utils/deletions.c.o" "gcc" "CMakeFiles/kilo.dir/io/utils/deletions.c.o.d"
   "/home/gost/projects/kilo/io/utils/insertions.c" "CMakeFiles/kilo.dir/io/utils/insertions.c.o" "gcc" "CMakeFiles/kilo.dir/io/utils/insertions.c.o.d"
   "/home/gost/projects/kilo/io/utils/operations.c" "CMakeFiles/kilo.dir/io/utils/operations.c.o" "gcc" "CMakeFiles/kilo.dir/io/utils/operations.c.o.d"
   "/home/gost/projects/kilo/kilo.c" "CMakeFiles/kilo.dir/kilo.c.o" "gcc" "CMakeFiles/kilo.dir/kilo.c.o.d"

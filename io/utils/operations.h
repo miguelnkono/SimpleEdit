@@ -13,6 +13,15 @@
 void editorAppendRow(const char *s, size_t size);
 
 /**
+ * This function appends a row to the editor at the end of the current text.
+ *
+ * @param at the position where a new row will be inserted.
+ * @param s The string to append.
+ * @param size The size of the string.
+ */
+void editorInsertRow(int at, const char *s, size_t size);
+
+/**
  * This function updates a row's rendered version.
  * @param row The row to update.
  */

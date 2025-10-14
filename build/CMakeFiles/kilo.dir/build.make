@@ -153,10 +153,24 @@ CMakeFiles/kilo.dir/io/utils/insertions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kilo.dir/io/utils/insertions.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/gost/projects/kilo/io/utils/insertions.c -o CMakeFiles/kilo.dir/io/utils/insertions.c.s
 
+CMakeFiles/kilo.dir/io/utils/deletions.c.o: CMakeFiles/kilo.dir/flags.make
+CMakeFiles/kilo.dir/io/utils/deletions.c.o: ../io/utils/deletions.c
+CMakeFiles/kilo.dir/io/utils/deletions.c.o: CMakeFiles/kilo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/kilo.dir/io/utils/deletions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/kilo.dir/io/utils/deletions.c.o -MF CMakeFiles/kilo.dir/io/utils/deletions.c.o.d -o CMakeFiles/kilo.dir/io/utils/deletions.c.o -c /home/gost/projects/kilo/io/utils/deletions.c
+
+CMakeFiles/kilo.dir/io/utils/deletions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/kilo.dir/io/utils/deletions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/gost/projects/kilo/io/utils/deletions.c > CMakeFiles/kilo.dir/io/utils/deletions.c.i
+
+CMakeFiles/kilo.dir/io/utils/deletions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/kilo.dir/io/utils/deletions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/gost/projects/kilo/io/utils/deletions.c -o CMakeFiles/kilo.dir/io/utils/deletions.c.s
+
 CMakeFiles/kilo.dir/io/editor_operations/edit.c.o: CMakeFiles/kilo.dir/flags.make
 CMakeFiles/kilo.dir/io/editor_operations/edit.c.o: ../io/editor_operations/edit.c
 CMakeFiles/kilo.dir/io/editor_operations/edit.c.o: CMakeFiles/kilo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/kilo.dir/io/editor_operations/edit.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/kilo.dir/io/editor_operations/edit.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/kilo.dir/io/editor_operations/edit.c.o -MF CMakeFiles/kilo.dir/io/editor_operations/edit.c.o.d -o CMakeFiles/kilo.dir/io/editor_operations/edit.c.o -c /home/gost/projects/kilo/io/editor_operations/edit.c
 
 CMakeFiles/kilo.dir/io/editor_operations/edit.c.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/kilo.dir/io/editor_operations/edit.c.s: cmake_force
 CMakeFiles/kilo.dir/init.c.o: CMakeFiles/kilo.dir/flags.make
 CMakeFiles/kilo.dir/init.c.o: ../init.c
 CMakeFiles/kilo.dir/init.c.o: CMakeFiles/kilo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/kilo.dir/init.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/kilo.dir/init.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/kilo.dir/init.c.o -MF CMakeFiles/kilo.dir/init.c.o.d -o CMakeFiles/kilo.dir/init.c.o -c /home/gost/projects/kilo/init.c
 
 CMakeFiles/kilo.dir/init.c.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/kilo.dir/init.c.s: cmake_force
 CMakeFiles/kilo.dir/types/string_buf.c.o: CMakeFiles/kilo.dir/flags.make
 CMakeFiles/kilo.dir/types/string_buf.c.o: ../types/string_buf.c
 CMakeFiles/kilo.dir/types/string_buf.c.o: CMakeFiles/kilo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/kilo.dir/types/string_buf.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/kilo.dir/types/string_buf.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/kilo.dir/types/string_buf.c.o -MF CMakeFiles/kilo.dir/types/string_buf.c.o.d -o CMakeFiles/kilo.dir/types/string_buf.c.o -c /home/gost/projects/kilo/types/string_buf.c
 
 CMakeFiles/kilo.dir/types/string_buf.c.i: cmake_force
@@ -203,6 +217,7 @@ kilo_OBJECTS = \
 "CMakeFiles/kilo.dir/io/output.c.o" \
 "CMakeFiles/kilo.dir/io/utils/operations.c.o" \
 "CMakeFiles/kilo.dir/io/utils/insertions.c.o" \
+"CMakeFiles/kilo.dir/io/utils/deletions.c.o" \
 "CMakeFiles/kilo.dir/io/editor_operations/edit.c.o" \
 "CMakeFiles/kilo.dir/init.c.o" \
 "CMakeFiles/kilo.dir/types/string_buf.c.o"
@@ -216,12 +231,13 @@ kilo: CMakeFiles/kilo.dir/io/input.c.o
 kilo: CMakeFiles/kilo.dir/io/output.c.o
 kilo: CMakeFiles/kilo.dir/io/utils/operations.c.o
 kilo: CMakeFiles/kilo.dir/io/utils/insertions.c.o
+kilo: CMakeFiles/kilo.dir/io/utils/deletions.c.o
 kilo: CMakeFiles/kilo.dir/io/editor_operations/edit.c.o
 kilo: CMakeFiles/kilo.dir/init.c.o
 kilo: CMakeFiles/kilo.dir/types/string_buf.c.o
 kilo: CMakeFiles/kilo.dir/build.make
 kilo: CMakeFiles/kilo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking C executable kilo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gost/projects/kilo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking C executable kilo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kilo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
