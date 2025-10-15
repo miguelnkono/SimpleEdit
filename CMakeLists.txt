@@ -22,6 +22,8 @@ add_executable(kilo kilo.c
     io/editor_operations/edit.h
     io/search.c
     io/search.h
+		syntax_highlighting/syntax_highlighting.c
+		syntax_highlighting/syntax_highlighting.h
     init.c
     init.h
     types/string_buf.c

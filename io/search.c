@@ -1,4 +1,5 @@
 #include "search.h"
+#include <numa.h>
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,6 +13,16 @@ void editorFindCallback(char *query, int key)
 {
   static int last_match = -1;
   static int direction = 1;
+
+  static int save_hl_line;
+  static int *save_hl = NULL;
+
+  if (save_hl)
+  {
+    memcpy(E.row[save_hl_line].hl, save_hl, E.row[save_hl_line].rsize);
+    free(save_hl);
+    save_hl = NULL;
+  }
 
   if (key == '\r' || key == ESCAPE_SEQUENCE)
   {
@@ -54,6 +65,11 @@ void editorFindCallback(char *query, int key)
       E.cy = current_match;
       E.cx = editorRowRxToCx(row, match - row->render);
       E.rowoff = E.numrows;
+
+      save_hl_line = current_match;
+      save_hl = malloc(row->rsize);
+      memcpy(save_hl, row->hl, row->rsize);
+      memset(&row->hl[match - row->render], HL_MATCH, strlen(query));
       break;
     }
   }

@@ -17,6 +17,7 @@ typedef struct
   int rsize;
   char *chars;
   char *render;
+  unsigned char *hl;
 } erow;
 
 /**
@@ -63,6 +64,13 @@ enum editorKey
 
   PAGE_UP,
   PAGE_DOWN,
+};
+
+enum editorHighlight
+{
+  HL_NORMAL = 0, // for white color (37)
+  HL_NUMBER,     // for red color (39)
+  HL_MATCH,      // for blue (34)
 };
 
 #endif // KILO_DATA_H

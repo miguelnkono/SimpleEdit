@@ -345,6 +345,30 @@ kilo.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/kilo.c.s
 .PHONY : kilo.c.s
 
+syntax_highlighting/syntax_highlighting.o: syntax_highlighting/syntax_highlighting.c.o
+.PHONY : syntax_highlighting/syntax_highlighting.o
+
+# target to build an object file
+syntax_highlighting/syntax_highlighting.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/syntax_highlighting/syntax_highlighting.c.o
+.PHONY : syntax_highlighting/syntax_highlighting.c.o
+
+syntax_highlighting/syntax_highlighting.i: syntax_highlighting/syntax_highlighting.c.i
+.PHONY : syntax_highlighting/syntax_highlighting.i
+
+# target to preprocess a source file
+syntax_highlighting/syntax_highlighting.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/syntax_highlighting/syntax_highlighting.c.i
+.PHONY : syntax_highlighting/syntax_highlighting.c.i
+
+syntax_highlighting/syntax_highlighting.s: syntax_highlighting/syntax_highlighting.c.s
+.PHONY : syntax_highlighting/syntax_highlighting.s
+
+# target to generate assembly for a file
+syntax_highlighting/syntax_highlighting.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kilo.dir/build.make CMakeFiles/kilo.dir/syntax_highlighting/syntax_highlighting.c.s
+.PHONY : syntax_highlighting/syntax_highlighting.c.s
+
 terminal/terminal.o: terminal/terminal.c.o
 .PHONY : terminal/terminal.o
 
@@ -429,6 +453,9 @@ help:
 	@echo "... kilo.o"
 	@echo "... kilo.i"
 	@echo "... kilo.s"
+	@echo "... syntax_highlighting/syntax_highlighting.o"
+	@echo "... syntax_highlighting/syntax_highlighting.i"
+	@echo "... syntax_highlighting/syntax_highlighting.s"
 	@echo "... terminal/terminal.o"
 	@echo "... terminal/terminal.i"
 	@echo "... terminal/terminal.s"

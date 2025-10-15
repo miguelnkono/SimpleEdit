@@ -4,14 +4,17 @@
 
 #include "output.h"
 
+#include <ctype.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
 
 #include "../data.h"
 #include "../defines.h"
+#include "../syntax_highlighting/syntax_highlighting.h"
 #include "../types/string_buf.h"
 
 // function to convert the cx's into cy's coordinates.
@@ -122,15 +125,38 @@ void editorDrawRows(abuf *ab)
       {
         len = E.screencols;
       }
-      abAppend(ab, &E.row[filerow].render[E.coloff], len);
+      char *c = &E.row[filerow].render[E.coloff];
+      unsigned char *hl = &E.row[filerow].hl[E.coloff];
+      int current_color = -1;
+      int j;
+      for (j = 0; j < len; j++)
+      {
+        if (hl[j] == HL_NORMAL)
+        {
+          if (current_color != -1)
+          {
+            abAppend(ab, COLOR_RED_COLOR, COLOR_RED_COLOR_SIZE);
+            current_color = -1;
+          }
+          abAppend(ab, &c[j], 1);
+        }
+        else
+        {
+          int color = editorSyntaxToColor(hl[j]);
+          if (color != current_color)
+          {
+            current_color = color;
+            char buf[16];
+            int clen = snprintf(buf, sizeof(buf), "\x1b[%dm", color);
+            abAppend(ab, buf, clen);
+          }
+          abAppend(ab, &c[j], 1);
+        }
+      }
+      abAppend(ab, COLOR_NORMAL_COLOR, COLOR_NORMAL_COLOR_SIZE);
     }
 
     abAppend(ab, SCREEN_CLEAR_LINE, SCREEN_CLEAR_LINE_SIZE);
-    // if (y < E.screenrows - 1)
-    // {
-    //   // write(STDOUT_FILENO, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
-    //   abAppend(ab, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
-    // }
     abAppend(ab, SCREEN_NEW_LINE, SCREEN_NEW_LINE_SIZE);
   }
 }

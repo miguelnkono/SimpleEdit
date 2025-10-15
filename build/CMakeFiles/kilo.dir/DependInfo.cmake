@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/gost/projects/kilo/io/utils/insertions.c" "CMakeFiles/kilo.dir/io/utils/insertions.c.o" "gcc" "CMakeFiles/kilo.dir/io/utils/insertions.c.o.d"
   "/home/gost/projects/kilo/io/utils/operations.c" "CMakeFiles/kilo.dir/io/utils/operations.c.o" "gcc" "CMakeFiles/kilo.dir/io/utils/operations.c.o.d"
   "/home/gost/projects/kilo/kilo.c" "CMakeFiles/kilo.dir/kilo.c.o" "gcc" "CMakeFiles/kilo.dir/kilo.c.o.d"
+  "/home/gost/projects/kilo/syntax_highlighting/syntax_highlighting.c" "CMakeFiles/kilo.dir/syntax_highlighting/syntax_highlighting.c.o" "gcc" "CMakeFiles/kilo.dir/syntax_highlighting/syntax_highlighting.c.o.d"
   "/home/gost/projects/kilo/terminal/terminal.c" "CMakeFiles/kilo.dir/terminal/terminal.c.o" "gcc" "CMakeFiles/kilo.dir/terminal/terminal.c.o.d"
   "/home/gost/projects/kilo/types/string_buf.c" "CMakeFiles/kilo.dir/types/string_buf.c.o" "gcc" "CMakeFiles/kilo.dir/types/string_buf.c.o.d"
   )

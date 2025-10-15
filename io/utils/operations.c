@@ -1,15 +1,16 @@
 #include "operations.h"
 
 #include "../../defines.h"
+#include "../../syntax_highlighting/syntax_highlighting.h"
 #include <string.h>
 
 void editorAppendRow(const char *s, size_t size)
 {
-  E.row = realloc(E.row, sizeof(erow) * (E.numrows + 1));
+  E.row = (erow *)realloc(E.row, sizeof(erow) * (E.numrows + 1));
 
   int at = E.numrows;
   E.row[at].size = size;
-  E.row[at].chars = malloc(size + 1);
+  E.row[at].chars = (char *)malloc(size + 1);
   memcpy(E.row[at].chars, s, size);
   E.row[at].chars[size] = '\0';
 
@@ -26,16 +27,17 @@ void editorInsertRow(int at, const char *s, size_t size)
   if (at < 0 || at > E.numrows)
     return;
 
-  E.row = realloc(E.row, sizeof(erow) * (E.numrows + 1));
+  E.row = (erow *)realloc(E.row, sizeof(erow) * (E.numrows + 1));
   memmove(&E.row[at + 1], &E.row[at], sizeof(erow) * (E.numrows - at));
 
   E.row[at].size = size;
-  E.row[at].chars = malloc(size + 1);
+  E.row[at].chars = (char *)malloc(size + 1);
   memcpy(E.row[at].chars, s, size);
   E.row[at].chars[size] = '\0';
 
   E.row[at].rsize = 0;
-  E.row[at].render = NULL;
+  E.row[at].render = ((char *)0);
+  E.row[at].hl = ((unsigned char *)0);
   editorUpdateRow(&E.row[at]);
 
   E.numrows++;
@@ -56,7 +58,7 @@ void editorUpdateRow(erow *row)
   }
 
   free(row->render);
-  row->render = malloc(row->size + tabs * (EDITOR_TAB_STOP - 1) + 1);
+  row->render = (char *)malloc(row->size + tabs * (EDITOR_TAB_STOP - 1) + 1);
 
   int idx = 0;
   for (j = 0; j < row->size; j++)
@@ -77,4 +79,6 @@ void editorUpdateRow(erow *row)
   }
   row->render[idx] = '\0';
   row->rsize = idx;
+
+  editorUpdateSyntax(row);
 }

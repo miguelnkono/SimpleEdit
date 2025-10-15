@@ -17,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/kilo.dir/io/utils/operations.c.o.d"
   "CMakeFiles/kilo.dir/kilo.c.o"
   "CMakeFiles/kilo.dir/kilo.c.o.d"
+  "CMakeFiles/kilo.dir/syntax_highlighting/syntax_highlighting.c.o"
+  "CMakeFiles/kilo.dir/syntax_highlighting/syntax_highlighting.c.o.d"
   "CMakeFiles/kilo.dir/terminal/terminal.c.o"
   "CMakeFiles/kilo.dir/terminal/terminal.c.o.d"
   "CMakeFiles/kilo.dir/types/string_buf.c.o"

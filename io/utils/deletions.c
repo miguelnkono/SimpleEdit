@@ -21,6 +21,7 @@ void editorFreeRow(erow *row)
 {
   free(row->chars);
   free(row->render);
+  free(row->hl);
 }
 
 void editorDelRow(int at)
