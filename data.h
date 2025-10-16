@@ -9,6 +9,16 @@
 #include <time.h>
 
 /**
+ * Struct containing syntax highlighting information about a particular file.
+ * */
+struct editorSyntax
+{
+  const char *filetype;
+  const char **filematch;
+  int flags;
+};
+
+/**
  * This struct contains the size of text in each of the lines in the editor and the text on each of those lines.
  */
 typedef struct
@@ -45,6 +55,9 @@ typedef struct
   // the row offset
   int rowoff;
   int coloff;
+
+  // syntax highlighting
+  struct editorSyntax *syntax;
 } editorConfig;
 extern editorConfig E;
 

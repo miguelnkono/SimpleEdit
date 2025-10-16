@@ -17,4 +17,18 @@ void editorUpdateSyntax(erow *row);
  * */
 int editorSyntaxToColor(int hl);
 
+/**
+ * Function to check if the current character is a separator character.
+ * A separator character in our text editor is a character that is part of one of this character:
+ *   - space
+ *   - '\0'
+ *   - ,.[](){}+-/%~<>;
+ **/
+int is_separator(int ch);
+
+/**
+ * Function to select the type of file we opening so that we can properly highlight it.
+ * */
+void editorSelectSyntaxHighlight();
+
 #endif // SYNTAX_HIGHLIGHTING_H

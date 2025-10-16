@@ -16,8 +16,9 @@ void initEditor()
   E.numrows = 0;
   E.rowoff = 0;
   E.coloff = 0;
-  E.row = ((void *)0); // this is the same thing as the NULL value. :)
-  E.filename = ((void *)0);
+  E.row = ((erow *)0); // this is the same thing as the NULL value. :)
+  E.filename = ((char *)0);
+  E.syntax = ((struct editorSyntax *)0);
   E.statussmg[0] = '\0';
   E.statussmg_time = 0;
 

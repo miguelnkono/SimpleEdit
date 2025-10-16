@@ -2,6 +2,7 @@
 // Created by gost on 9/10/25.
 //
 
+#include "../syntax_highlighting/syntax_highlighting.h"
 #include "editor_operations/edit.h"
 #include "output.h"
 #include "search.h"
@@ -180,6 +181,8 @@ void editorOpen(const char *filename)
     die("fopen");
   }
 
+  editorSelectSyntaxHighlight();
+
   char *line = NULL;
   ssize_t linelen;
   size_t linecap = 0;
@@ -231,6 +234,7 @@ void editorSave()
       editorSetStatusMessage("Save aborted");
       return;
     }
+    editorSelectSyntaxHighlight();
   }
 
   int len;

@@ -9,6 +9,8 @@
 #define EDITOR_TAB_STOP 4  // usually it is 8.
 #define EDITOR_QUIT_TIME 3 // the number of times the user should press the ctrl-q to quit the editor in case of unsaved file.
 
+#define HL_HIGHLIGHT_NUMBER (1 << 0)
+
 /**
  * It generates the control character corresponding to a given key character.
  * @param K the character in the alphabet table

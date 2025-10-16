@@ -15,10 +15,11 @@ void editorFindCallback(char *query, int key)
   static int direction = 1;
 
   static int save_hl_line;
-  static int *save_hl = NULL;
+  static char *save_hl = NULL;
 
   if (save_hl)
   {
+    // restore the previous color.
     memcpy(E.row[save_hl_line].hl, save_hl, E.row[save_hl_line].rsize);
     free(save_hl);
     save_hl = NULL;
@@ -50,6 +51,7 @@ void editorFindCallback(char *query, int key)
   int i;
   for (i = 0; i < E.numrows; i++)
   {
+    // we circle the match here.
     current_match += direction;
     if (current_match == -1)
       current_match = E.numrows - 1;
@@ -67,7 +69,7 @@ void editorFindCallback(char *query, int key)
       E.rowoff = E.numrows;
 
       save_hl_line = current_match;
-      save_hl = malloc(row->rsize);
+      save_hl = (char *)malloc(row->rsize);
       memcpy(save_hl, row->hl, row->rsize);
       memset(&row->hl[match - row->render], HL_MATCH, strlen(query));
       break;
