@@ -1,3 +1,0 @@
-/home/gost/projects/kilo/build/CMakeFiles/kilo.dir
-/home/gost/projects/kilo/build/CMakeFiles/edit_cache.dir
-/home/gost/projects/kilo/build/CMakeFiles/rebuild_cache.dir
